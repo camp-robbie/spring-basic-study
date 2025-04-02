@@ -1,7 +1,7 @@
 package com.camp.springbasicstudy.controller;
 
 
-import com.camp.springbasicstudy.controller.dto.CreateRequestDto;
+import com.camp.springbasicstudy.controller.dto.CreateMemoRequestDto;
 import com.camp.springbasicstudy.controller.dto.MemoResponseDto;
 import com.camp.springbasicstudy.service.MemoService;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class MemoController {
     }
 
     @PostMapping("/api/memos")
-    public ResponseEntity<Void> save(@RequestBody CreateRequestDto request) {
+    public ResponseEntity<Void> save(@RequestBody CreateMemoRequestDto request) {
         memoService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

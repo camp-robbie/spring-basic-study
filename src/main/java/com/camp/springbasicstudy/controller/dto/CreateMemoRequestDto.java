@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class CreateRequestDto {
+public class CreateMemoRequestDto {
     private String title;
     private String content;
 }

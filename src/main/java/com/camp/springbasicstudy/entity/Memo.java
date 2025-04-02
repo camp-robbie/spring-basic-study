@@ -1,6 +1,6 @@
 package com.camp.springbasicstudy.entity;
 
-import com.camp.springbasicstudy.controller.dto.CreateRequestDto;
+import com.camp.springbasicstudy.controller.dto.CreateMemoRequestDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +19,7 @@ public class Memo {
 
     public Memo() {}
 
-    public Memo(CreateRequestDto request) {
+    public Memo(CreateMemoRequestDto request) {
         this.title = request.getTitle();
         this.content = request.getContent();
     }

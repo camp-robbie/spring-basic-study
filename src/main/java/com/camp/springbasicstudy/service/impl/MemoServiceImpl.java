@@ -1,6 +1,6 @@
 package com.camp.springbasicstudy.service.impl;
 
-import com.camp.springbasicstudy.controller.dto.CreateRequestDto;
+import com.camp.springbasicstudy.controller.dto.CreateMemoRequestDto;
 import com.camp.springbasicstudy.controller.dto.MemoResponseDto;
 import com.camp.springbasicstudy.entity.Memo;
 import com.camp.springbasicstudy.repository.MemoJpaRepository;
@@ -19,7 +19,7 @@ public class MemoServiceImpl implements MemoService {
     }
 
     @Override
-    public void save(CreateRequestDto request) {
+    public void save(CreateMemoRequestDto request) {
         Memo memo = new Memo(request);
         memoJpaRepository.save(memo);
     }

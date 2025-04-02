@@ -4,13 +4,12 @@ import com.camp.springbasicstudy.entity.Memo;
 import lombok.Getter;
 
 @Getter
-//@AllArgsConstructor
-public class MemoResponseDto {
-    private Long id; // PK
-    private String title; // 제목
-    private String content; // 내용
 
-    // this 와 this()
+public class MemoResponseDto {
+    private Long id;
+    private String title;
+    private String content;
+
     public MemoResponseDto(Memo memo) {
         this(memo.getId(), memo.getTitle(), memo.getContent());
     }

@@ -6,6 +6,6 @@ import lombok.ToString;
 @Getter
 @ToString
 public class CreateRequestDto {
-    private String title; // 제목
-    private String content; // 내용
+    private String title;
+    private String content;
 }

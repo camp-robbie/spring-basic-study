@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MemoServiceImpl implements MemoService {
@@ -35,5 +36,29 @@ public class MemoServiceImpl implements MemoService {
         }
 
         return memoResponseDtoList;
+    }
+
+    @Override
+    public MemoResponseDto getById(Long id) {
+        // 아래 memo 객체는 테이블의 행(row)!
+        // select * from memo where id = ?; <- JPA
+        /**
+         * select
+         *         m1_0.id,
+         *         m1_0.content,
+         *         m1_0.title
+         *     from
+         *         memo m1_0
+         *     where
+         *         m1_0.id=?
+         */
+        Memo memo = memoJpaRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Not Found Memo")
+        );
+        // 람다 & 스트림, Exception (Checked Exception, UnChecked Exception)
+
+        // Entity -> Dto
+        MemoResponseDto responseDto = new MemoResponseDto(memo);
+        return responseDto;
     }
 }

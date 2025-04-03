@@ -12,5 +12,6 @@ public interface MemoService {
      * @return List<MemoResponseDto>
      */
     List<MemoResponseDto> getAll();
+    MemoResponseDto getById(Long id);
 
 }

@@ -2,9 +2,12 @@ package com.camp.springbasicstudy.controller.dto;
 
 import com.camp.springbasicstudy.entity.Memo;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
 @Getter
-
+@NoArgsConstructor
 public class MemoResponseDto {
     private Long id;
     private String title;

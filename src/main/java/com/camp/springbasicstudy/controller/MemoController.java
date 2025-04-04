@@ -3,7 +3,9 @@ package com.camp.springbasicstudy.controller;
 
 import com.camp.springbasicstudy.controller.dto.CreateMemoRequestDto;
 import com.camp.springbasicstudy.controller.dto.MemoResponseDto;
+import com.camp.springbasicstudy.controller.dto.UpdateMemoRequestDto;
 import com.camp.springbasicstudy.service.MemoService;
+import org.springframework.boot.autoconfigure.context.MessageSourceProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +48,16 @@ public class MemoController {
          * }
          */
         return responseDto;
+    }
+
+    @PutMapping("/api/memos/{id}")
+    public void update(@PathVariable Long id, @RequestBody UpdateMemoRequestDto request) {
+        memoService.update(id, request);
+    }
+
+    @DeleteMapping("/api/memos/{id}")
+    public void delete(@PathVariable Long id) {
+        memoService.delete(id);
     }
 
 }

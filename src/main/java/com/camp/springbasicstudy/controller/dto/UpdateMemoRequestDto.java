@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-public class CreateMemoRequestDto {
+public class UpdateMemoRequestDto {
     private String title;
     private String author;
     private String content;

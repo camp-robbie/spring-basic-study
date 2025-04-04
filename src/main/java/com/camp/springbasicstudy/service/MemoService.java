@@ -2,6 +2,7 @@ package com.camp.springbasicstudy.service;
 
 import com.camp.springbasicstudy.controller.dto.CreateMemoRequestDto;
 import com.camp.springbasicstudy.controller.dto.MemoResponseDto;
+import com.camp.springbasicstudy.controller.dto.UpdateMemoRequestDto;
 
 import java.util.List;
 
@@ -13,5 +14,7 @@ public interface MemoService {
      */
     List<MemoResponseDto> getAll();
     MemoResponseDto getById(Long id);
+    void update(Long id, UpdateMemoRequestDto request);
+    void delete(Long id);
 
 }

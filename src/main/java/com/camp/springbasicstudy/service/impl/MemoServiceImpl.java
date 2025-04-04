@@ -2,6 +2,7 @@ package com.camp.springbasicstudy.service.impl;
 
 import com.camp.springbasicstudy.controller.dto.CreateMemoRequestDto;
 import com.camp.springbasicstudy.controller.dto.MemoResponseDto;
+import com.camp.springbasicstudy.controller.dto.UpdateMemoRequestDto;
 import com.camp.springbasicstudy.entity.Memo;
 import com.camp.springbasicstudy.repository.MemoJpaRepository;
 import com.camp.springbasicstudy.service.MemoService;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MemoServiceImpl implements MemoService {
@@ -61,4 +61,22 @@ public class MemoServiceImpl implements MemoService {
         MemoResponseDto responseDto = new MemoResponseDto(memo);
         return responseDto;
     }
+
+    @Override
+    public void update(Long id, UpdateMemoRequestDto request) {
+        Memo memo = memoJpaRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Not Found Memo")
+        );
+        memo.update(request);
+        memoJpaRepository.save(memo);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Memo memo = memoJpaRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Not Found Memo")
+        );
+        memoJpaRepository.delete(memo);
+    }
+
 }
